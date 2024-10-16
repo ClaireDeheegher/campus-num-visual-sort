@@ -11,6 +11,29 @@ import edu.campusnum.visualsort.model.ObservableArray;
 public class HeapSort implements SortAlgorithm{
     @Override
     public void sort(ObservableArray array) {
-        throw new UnsupportedOperationException("Not implemented");
+
     }
+    public void organize(ObservableArray array) {
+
+    }
+    public void goUp(ObservableArray array, int index) {
+
+    }
+    public void goDown(ObservableArray array, int index, int element) {
+        int max =0;
+        int formula = 2*index+1;
+        if (formula<element){
+            if (array.get(formula)>array.get(2*index)){
+                max =formula;
+            }
+            else{
+                max = 2*index;
+            }
+            if (array.get(max)>array.get(index)){
+                array.swap(max,index);
+                goDown(array,max,element);
+            }
+        }
+    }
+
 }

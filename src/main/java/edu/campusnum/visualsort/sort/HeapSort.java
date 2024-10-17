@@ -11,13 +11,22 @@ import edu.campusnum.visualsort.model.ObservableArray;
 public class HeapSort implements SortAlgorithm{
     @Override
     public void sort(ObservableArray array) {
-
+        organize(array);
+        for (int i=array.getLength()-1; i>=0; i--) {
+            array.swap(0, i);
+            goDown(array, 0, i);
+        }
     }
     public void organize(ObservableArray array) {
-
+        for (int i = 0; i < array.getLength()-1; i++) {
+            goUp(array, i);
+        }
     }
     public void goUp(ObservableArray array, int index) {
-
+        if (array.get(index)>array.get(index/2)) {
+            array.swap(index, index/2);
+            goUp(array, index/2);
+        }
     }
     public void goDown(ObservableArray array, int index, int element) {
         int max =0;
